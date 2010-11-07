@@ -1,7 +1,7 @@
-var list = function(query, template, extra_context) {
+var list = function(model, query, template, extra_context) {
     
     return function(req, res) {
-        query.all(function(object_list) {
+        model.find(query).all(function(object_list) {
             
             var locals = {}
             locals.object_list = object_list
