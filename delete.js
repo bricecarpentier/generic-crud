@@ -5,8 +5,8 @@ var delete_fn = function(model, post_delete_redirect) {
     return function(req, res) {
         if (req.method === 'DELETE') {
             model.findById(req.params.id, function(object) {
-                object.delete()
-                res.flash('info', 'The object was delete')
+                object.remove()
+                req.flash('info', 'The object was deleted')
                 res.redirect(post_delete_redirect)
             })
         } else {
@@ -17,4 +17,4 @@ var delete_fn = function(model, post_delete_redirect) {
     
 }
 
-exports.delete = delete_fn
+exports.object_delete = delete_fn
