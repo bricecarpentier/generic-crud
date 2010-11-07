@@ -17,4 +17,4 @@ var list = function(query, template, extra_context) {
     
 }
 
-exports.list = list
+exports.object_list = list

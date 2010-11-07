@@ -17,4 +17,4 @@ var detail = function(model, template, extra_context) {
     
 }
 
-exports.detail = detail
+exports.object_detail = detail

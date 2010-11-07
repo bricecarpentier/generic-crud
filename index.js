@@ -1,2 +1,6 @@
-exports.list = require('./list').list
-exports.detail = require('./detail').detail
+['./list', './detail', './delete', './simple'].forEach(function(file) {
+    var module = require(file)
+    for (var prop in module) {
+        exports[prop] = module[prop]
+    }
+})
