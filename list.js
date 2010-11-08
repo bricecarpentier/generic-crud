@@ -2,7 +2,7 @@ var list = function(queryset, template, extra_context) {
     
     return function(req, res) {
         
-        var fn = function(object_list) {
+        var render = function(object_list) {
             var locals = {}
             locals.object_list = object_list
             for (var name in extra_context) {
@@ -16,10 +16,10 @@ var list = function(queryset, template, extra_context) {
         
         switch (typeof(queryset)) {
             case 'function':
-                queryset(fn)
+                queryset(render)
                 break
             case 'object':
-                fn(queryset)
+                render(queryset)
                 break
             default:
                 throw new TypeError()
